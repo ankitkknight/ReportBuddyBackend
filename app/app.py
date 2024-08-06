@@ -3,8 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import uvicorn
-from app.models.retailer_model import User
-from app.models.customer_model import Customer
+from app.models.user_model import User
 from app.core.config import settings
 from app.api.api_v1.router import router 
 from fastapi.middleware.wsgi import WSGIMiddleware
@@ -46,7 +45,6 @@ async def app_init():
     await init_beanie(
         database=db_client,
         document_models=[
-            Customer,
             User,
         ]
     )
