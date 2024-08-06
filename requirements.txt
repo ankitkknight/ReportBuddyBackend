@@ -1,17 +1,8 @@
-altgraph==0.17.4
-annotated-types==0.6.0
-anyio==3.7.1
-beanie==1.23.6
-blinker==1.7.0
-certifi==2023.7.22
-click==8.1.7
 dnspython==2.4.2
 ecdsa==0.18.0
 email-validator==2.1.0.post1
 fastapi==0.104.1
 uvicorn[standerd]
-Flask==3.0.0
-h11==0.14.0
 httpcore==1.0.2
 httptools==0.6.1
 httpx==0.25.1

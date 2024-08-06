@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends,HTTPException
 from app.schemas.customer_schema import CustomerOut, CustomerCreate, CustomerUpdate
-from app.api.deps.retailer_deps import get_current_user
+# from app.api.deps.retailer_deps import get_current_user
 from app.models.retailer_model import User
 from app.services.customer_service import CustomerService
 from app.models.customer_model import Customer

@@ -6,7 +6,7 @@ from app.core.security import create_access_token, create_refresh_token
 # from app.schemas.auth_schema import TokenSchema
 from app.schemas.user_schema import UserOut
 from app.models.retailer_model import User
-from app.api.deps.retailer_deps import get_current_user
+# from app.api.deps.retailer_deps import get_current_user
 from app.core.config import settings
 # from app.schemas.auth_schema import TokenPayload
 from pydantic import ValidationError
@@ -31,9 +31,9 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()) -> Any:
     }
 
 
-@auth_router.post('/test-token', summary="Test if the access token is valid", response_model=UserOut)
-async def test_token(user: User = Depends(get_current_user)):
-    return user
+# @auth_router.post('/test-token', summary="Test if the access token is valid", response_model=UserOut)
+# async def test_token(user: User = Depends(get_current_user)):
+#     return user
 
 
 # @auth_router.post('/refresh', summary="Refresh token", response_model=TokenSchema)
