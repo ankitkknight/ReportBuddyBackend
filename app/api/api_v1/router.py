@@ -9,7 +9,6 @@ router = APIRouter()
 
 
 router.include_router(user.user_router, tags=["user"]) 
-router.include_router(auth_router, tags=["auth"])
 # router.include_router(coupon.coupon_router, prefix='/coupon',tags=["coupon"]) 
 # router.include_router(purchase.purchase_router, prefix='/purchase',tags=["purchase"])
 # router.include_router(setup.setup_router, prefix='/setup',tags=["setups"])

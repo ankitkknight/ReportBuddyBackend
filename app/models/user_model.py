@@ -13,6 +13,7 @@ class User(Document):
     first_name: str
     last_name: str
     email: str = Indexed(unique=True)
+    hashed_password: str
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 

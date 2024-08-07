@@ -3,6 +3,10 @@ from uuid import UUID
 from typing import Optional
 
 
+class UserLogin(BaseModel):
+    email: str
+    password: str
+
 class UserAuth(BaseModel):
     first_name: str = Field(..., description="User first name")
     last_name: str = Field(..., description="User last name")

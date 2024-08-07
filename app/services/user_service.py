@@ -10,23 +10,19 @@ class UserService:
     @staticmethod
     async def create_user(data: UserAuth) -> UserOut:
         user_in = User(
-            brand_name=data.brand_name,
             first_name=data.first_name,
             last_name=data.last_name,
             email=data.email,
-            address=data.address,
             phone_number=data.phone_number,
             hashed_password=get_password(data.password)
         )
         await user_in.save()
         return UserOut(
             user_id=user_in.user_id,
-            brand_name=user_in.brand_name,
             first_name=user_in.first_name,
             last_name=user_in.last_name,
             email=user_in.email,
             phone_number=user_in.phone_number,
-            address=user_in.address
         )
     
     @staticmethod
@@ -39,10 +35,16 @@ class UserService:
         
         return user
     
+
     @staticmethod
     async def get_user_by_email(email: str) -> Optional[User]:
-        user = await User.find_one(User.email == email)
-        return user
+        try:
+            user = await User.find_one(User.email == email)
+            print(f"User retrieved: {user}")
+            return user
+        except Exception as e:
+            print(f"An error occurred while retrieving user by email: {e}")
+            return None
     
     @staticmethod
     async def get_user_by_id(id: UUID) -> Optional[User]:
