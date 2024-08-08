@@ -8,8 +8,8 @@ import requests
 
 class ReportService:
     @staticmethod
-    async def upload_report(data: str, user_id: UUID):
-        accessToken = ""
+    async def process_report(data: str, user_id: UUID):
+        
         url = "https://na-1-dev.api.opentext.com/tenants/c84e0d98-0b45-4225-87ff-ca09c02e7761/oauth2/token"
         headers = {
             "Content-Type": "application/jsons",

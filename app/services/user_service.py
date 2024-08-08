@@ -9,6 +9,9 @@ import pymongo
 class UserService:
     @staticmethod
     async def create_user(data: UserAuth) -> UserOut:
+        existing_user = await UserService.get_user_by_email(email=data.email)
+        if existing_user:
+            raise pymongo.errors.DuplicateKeyError("User with this email already exists")
         user_in = User(
             first_name=data.first_name,
             last_name=data.last_name,
